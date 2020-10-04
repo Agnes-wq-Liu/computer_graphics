@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- hierachrical definition of a character -->
+<doc><node type="free" name="root">
+    	<geom type="box" name="body" center="0 0.5 0" scale="1 1 0.5" color="1 1 0"></geom>
+    	<node type="spherical" name="r shoulder" position="0 0.5 0">
+        	<geom type="box" name="upper r arm" center="0.5 0.75 0"
+        		scale="0.2 1.5 0.2" color="1 0 0"/>	
+    	</node>
+    	
+    	<node name="r elbow" type="rotary" position="1 1 1" axis="1 0 0" rotate="0.5 0 0">
+        		<geom type="box" name="lower r arm" center="-1 0 0" scale=" 1 1 1" color="0 1 0"></geom>
+        </node>
+        
+        <node type="spherical" name="r leg joint" position="0 0.5 0">
+    		<geom type="box" name="r leg " center="0.5 0.25 0" scale="0.2 1.5 0.2" color="0 0 1"></geom>
+    	</node>
+    	
+    </node>
+    
+</doc>
