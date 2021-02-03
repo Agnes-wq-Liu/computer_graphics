@@ -1,0 +1,32 @@
+#version 400
+//Agnes Liu 260713093
+uniform mat4 P;
+uniform mat4 V;
+uniform mat4 M;
+uniform mat4 MinvT;
+uniform vec3 NegCam;
+
+in vec4 position;  
+in vec3 normal;
+
+out vec3 normalForFP;
+out vec3 viewDir;
+
+
+
+void main() {
+
+    vec4 tmp = V * MinvT * vec4( normal, 0 );
+    normalForFP = normalize( tmp.xyz );
+    
+    
+    
+    vec4 tmp1 = V * M * position;
+    vec4 tmp2 = V * M * vec4(NegCam,1);
+  	viewDir = normalize(tmp1.xyz - tmp2.xyz);
+  	
+  	
+    
+    gl_Position = P * V * M * position; 
+    
+}

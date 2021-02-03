@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<scene ambient="0.2 0.2 0.2 1.0">
+  <!-- define camera,material,lights here -->
+  <light name="myLight" color="0.8 0.2 0.2" from="10 5 10 " power="0.6" type="point" />
+  <light name="myLight2" color="0.8 0.8 0.8" from="-10 10 2 " power="0.9" type="point" />
+  <material name="red" diffuse="1 0 0" specular="0.5 0.5 0.5" hardness="16" mirror="true" n="1" nt="2"/>
+  <material name="yellow" diffuse="1 1 0" specular="0.5 0.5 0.5" hardness="16" mirror="true" n="1" nt="2"/>
+  <material name="yellow2" diffuse="1 1 0" specular="0.5 0.5 0.5" hardness="16"/>
+  <material name="green" diffuse="0 1 0" specular="0.5 0.5 0.5" hardness="16" />
+  <material name="blue" diffuse="0 0 1" specular="0.5 0.5 0.5" hardness="16" mirror = "true"/>
+  <material name="black" diffuse="0 0 0" specular="0 0 0" hardness="20" mirror = "true"/>
+  <material name="white" diffuse="1 1 1" specular="0 0 0" hardness="20" mirror="true"/>
+    <material name="grey" diffuse="0.56 0.52 0.5" specular="0 0 0" hardness="0" mirror="true"/>
+  
+  <!-- render configuration -->
+  <render bgcolor="0 0 0" output="Object10_uniqueScene.png" samples="12" >
+    <camera name="myCamera" from="0 4 6" to="0 2 0" up="0 1 0" fovy="45" width="640" height="480" />
+  </render> 
+  
+  <!-- scene objects -->
+  <node name="root" >
+	  <sphere center="-3 1.1 -7" radius="1.1" >
+		<material ref="red" />
+	  </sphere>
+	   <sphere center="1 1.1 -7" radius="1.1" >
+		<material ref="red" />
+	  </sphere>
+	   <sphere center="7 1.1 -7" radius="1.1" >
+		<material ref="red" />
+	  </sphere>
+	  <sphere center="3 0.5 -10" radius="0.5" >
+		<material ref="blue" />
+	  </sphere> 
+	  <sphere center="-2 0.5 -2" radius="0.5" >
+		<material ref="blue" />
+	  </sphere> 
+	  <sphere center="5 0.5 -5" radius="0.5" >
+		<material ref="blue" />
+	  </sphere> 
+	  <plane coeffs="0 0 0 0" >
+	  	<material ref="black" />
+		<material2 ref="white" />
+	  </plane>  
+	   <node name="boxNode" rotation="0 -45 0" translation="-0.5 1.5 -13">
+	  <box min="-1.5 -1.5 -1.5" max="1.5 1.5 1.5" >
+		<material ref="white" />
+	  </box>
+	  </node> 
+	  <sphere center="2 1.1 2.5" radius="1.1" >
+		<material ref="red" />
+	  </sphere>
+	   <node name="boxNo3" rotation="0 -45 0" translation="-15 1.5 -30">
+	  <box min="-1.5 -1.5 -1.5" max="1.5 1.5 1.5" >
+		<material ref="grey" />
+	  </box>
+	  </node> 
+	  <node name ="quadric" rotation = "0 0 0" translation ="1 0.5 -2">
+	  <quadric Q="1 0 0 0 0 4 0 0 0 0 4 0 0 0 0 -1" rotation="0 -45 0" translation="20 3 0" center="4 0.4 -10">
+      <material ref="yellow2" />
+  	  </quadric>
+  	  </node>
+  	  <node name ="torus" rotation = "0 0 0" translation ="-4 0 -4">
+  	  <mesh name="myTorus" filename="a4data/torus.obj" >
+      <material ref="yellow" />
+      </mesh>
+      </node>
+  </node>
+</scene>
